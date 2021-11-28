@@ -1,12 +1,12 @@
-import { ReactComponent as IconMyLocation } from "../images/icon/my_location.svg";
-import { ReactComponent as IconYoBikeLogo } from "../images/icon/YoBike_logo.svg";
+// import { ReactComponent as IconMyLocation } from "../images/icon/my_location.svg";
+import { ReactComponent as IconYoBusLogo } from "../images/icon/YoBus_logo.svg";
 
-function getMyLocationIcon() {
-  return <IconMyLocation alt="my_location" />;
+// function getMyLocationIcon() {
+//   return <IconMyLocation alt="my_location" />;
+// }
+
+function getYoBusLogoIcon() {
+  return <IconYoBusLogo alt="YoBusLogo" />;
 }
 
-function getYoBikeLogoIcon() {
-  return <IconYoBikeLogo alt="YoBikeLogo" />;
-}
-
-export { getMyLocationIcon, getYoBikeLogoIcon };
+export { getYoBusLogoIcon };
