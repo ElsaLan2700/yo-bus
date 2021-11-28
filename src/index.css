@@ -29,34 +29,34 @@
 }
 
 /* ------------------------------ nav_menu ------------------------------ */
-.menu_rentbike {
+.menu_busroute {
   margin-right: 40px;
   text-decoration: none;
   position: relative;
 }
-.wave_yellow_long {
-  position: absolute;
-  top: 30px;
-  right: 5px;
-  display: none;
-}
-.menu_rentbike:hover {
+.menu_busroute:hover {
   color: #FF8B7C;
+}
+.menu_busroute:hover::after {
+  content: url(./images/icon/wave_pink.png);
+  position: absolute;
+  top: 20px;
+  right: 0;
 }
 
-.menu_routeinfo {
+.menu_buslocate {
   margin-right: 40px;
   text-decoration: none;
   position: relative;
 }
-.wave_yellow {
-  position: absolute;
-  top: 30px;
-  right: 5px;
-  display: none;
-}
-.menu_routeinfo:hover {
+.menu_buslocate:hover {
   color: #FF8B7C;
+}
+.menu_buslocate:hover::after {
+  content: url(./images/icon/wave_pink.png);
+  position: absolute;
+  top: 20px;
+  right: 0;
 }
 
 .menu_landscape {
@@ -67,12 +67,13 @@
 .menu_landscape:hover {
   color: #FF8B7C;
 }
-.wave_yellow {
+.menu_landscape:hover::after {
+  content: url(./images/icon/wave_pink.png);
   position: absolute;
-  top: 30px;
-  right: 5px;
-  display: none;
+  top: 20px;
+  right: 0;
 }
+
 
 .btn_callforaction {
   background-color: #FF8B7C;
@@ -162,6 +163,9 @@
 .search_field_input::placeholder {
   color: #a0a5aa;
   font-weight: 400;
+}
+.search_field_input:focus{
+  outline: none;
 }
 .btn_group {
   display: flex;
