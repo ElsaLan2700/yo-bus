@@ -12,7 +12,7 @@ const Header = () => {
           <Link to="/" className="menu_busroute">
             公車路線
           </Link>
-          <Link to="/" className="menu_buslocate">
+          <Link to="/busStop" className="menu_buslocate">
             附近站牌
           </Link>
           <a
