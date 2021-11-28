@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import wavePink from "../../images/icon/wave_pink.png";
 import { getYoBusLogoIcon } from "../../utils/iconUtilis";
 
 const Header = () => {
@@ -8,21 +9,11 @@ const Header = () => {
       <div className="header_container">
         <Link to="/">{getYoBusLogoIcon()}</Link>
         <div className="nav_menu">
-          <Link to="/" className="menu_rentbike">
+          <Link to="/" className="menu_busroute">
             公車路線
-            <img
-              className="wave_yellow_long"
-              src="./static/icon/wave_yellow_long.png"
-              alt=""
-            />
           </Link>
-          <Link to="/" className="menu_routeinfo">
+          <Link to="/" className="menu_buslocate">
             附近站牌
-            <img
-              className="wave_yellow"
-              src="./static/icon/wave_yellow.png"
-              alt=""
-            />
           </Link>
           <a
             href="https://mshmwr.github.io/yo-taiwan/"
@@ -31,11 +22,6 @@ const Header = () => {
             className="menu_landscape"
           >
             觀光資訊
-            <img
-              className="wave_yellow"
-              src="./static/icon/wave_yellow.png"
-              alt=""
-            />
           </a>
           <button className="btn_callforaction">今天想去哪？</button>
         </div>
