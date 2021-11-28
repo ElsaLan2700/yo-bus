@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getYoBikeLogoIcon } from "../../utils/iconUtilis";
+import { getYoBusLogoIcon } from "../../utils/iconUtilis";
 
 const Header = () => {
   return (
     <div className="header">
       <div className="header_container">
-        <Link to="/">{getYoBikeLogoIcon()}</Link>
+        <Link to="/">{getYoBusLogoIcon()}</Link>
         <div className="nav_menu">
           <Link to="/" className="menu_rentbike">
-            租/還車即時資訊
+            公車路線
             <img
               className="wave_yellow_long"
               src="./static/icon/wave_yellow_long.png"
@@ -17,7 +17,7 @@ const Header = () => {
             />
           </Link>
           <Link to="/" className="menu_routeinfo">
-            路線資訊
+            附近站牌
             <img
               className="wave_yellow"
               src="./static/icon/wave_yellow.png"
@@ -30,7 +30,7 @@ const Header = () => {
             rel="noreferrer"
             className="menu_landscape"
           >
-            觀光景點
+            觀光資訊
             <img
               className="wave_yellow"
               src="./static/icon/wave_yellow.png"
