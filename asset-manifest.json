@@ -1,31 +1,23 @@
 {
   "files": {
-    "main.css": "/yo-bike/static/css/main.f87b1e52.chunk.css",
-    "main.js": "/yo-bike/static/js/main.e978a841.chunk.js",
-    "main.js.map": "/yo-bike/static/js/main.e978a841.chunk.js.map",
-    "runtime-main.js": "/yo-bike/static/js/runtime-main.6806e59f.js",
-    "runtime-main.js.map": "/yo-bike/static/js/runtime-main.6806e59f.js.map",
-    "static/js/2.51f61aba.chunk.js": "/yo-bike/static/js/2.51f61aba.chunk.js",
-    "static/js/2.51f61aba.chunk.js.map": "/yo-bike/static/js/2.51f61aba.chunk.js.map",
-    "index.html": "/yo-bike/index.html",
-    "static/css/main.f87b1e52.chunk.css.map": "/yo-bike/static/css/main.f87b1e52.chunk.css.map",
-    "static/js/2.51f61aba.chunk.js.LICENSE.txt": "/yo-bike/static/js/2.51f61aba.chunk.js.LICENSE.txt",
-    "static/media/YoBike_logo.37e5bd9d.svg": "/yo-bike/static/media/YoBike_logo.37e5bd9d.svg",
-    "static/media/YoTaiwan_logo.8b53193c.svg": "/yo-bike/static/media/YoTaiwan_logo.8b53193c.svg",
-    "static/media/bus.17377ece.svg": "/yo-bike/static/media/bus.17377ece.svg",
-    "static/media/index.css": "/yo-bike/static/media/hero_image.0e0be012.png",
-    "static/media/cloudy.bb1e141c.svg": "/yo-bike/static/media/cloudy.bb1e141c.svg",
-    "static/media/yoBike.css": "/yo-bike/static/media/hero_img.18581ca0.png",
-    "static/media/landscape_hualian.3052e3aa.png": "/yo-bike/static/media/landscape_hualian.3052e3aa.png",
-    "static/media/location.6fe26833.svg": "/yo-bike/static/media/location.6fe26833.svg",
-    "static/media/my_location.fca4641c.svg": "/yo-bike/static/media/my_location.fca4641c.svg",
-    "static/media/rainy.ab1339b7.svg": "/yo-bike/static/media/rainy.ab1339b7.svg",
-    "static/media/sunny.0282ec5e.svg": "/yo-bike/static/media/sunny.0282ec5e.svg"
+    "main.css": "/yo-bus/static/css/main.adf4ac7a.chunk.css",
+    "main.js": "/yo-bus/static/js/main.79cfc5f8.chunk.js",
+    "main.js.map": "/yo-bus/static/js/main.79cfc5f8.chunk.js.map",
+    "runtime-main.js": "/yo-bus/static/js/runtime-main.11cac854.js",
+    "runtime-main.js.map": "/yo-bus/static/js/runtime-main.11cac854.js.map",
+    "static/js/2.ea8c61bc.chunk.js": "/yo-bus/static/js/2.ea8c61bc.chunk.js",
+    "static/js/2.ea8c61bc.chunk.js.map": "/yo-bus/static/js/2.ea8c61bc.chunk.js.map",
+    "index.html": "/yo-bus/index.html",
+    "static/css/main.adf4ac7a.chunk.css.map": "/yo-bus/static/css/main.adf4ac7a.chunk.css.map",
+    "static/js/2.ea8c61bc.chunk.js.LICENSE.txt": "/yo-bus/static/js/2.ea8c61bc.chunk.js.LICENSE.txt",
+    "static/media/YoBike_logo.37e5bd9d.svg": "/yo-bus/static/media/YoBike_logo.37e5bd9d.svg",
+    "static/media/index.css": "/yo-bus/static/media/hero_img.18581ca0.png",
+    "static/media/my_location.fca4641c.svg": "/yo-bus/static/media/my_location.fca4641c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6806e59f.js",
-    "static/js/2.51f61aba.chunk.js",
-    "static/css/main.f87b1e52.chunk.css",
-    "static/js/main.e978a841.chunk.js"
+    "static/js/runtime-main.11cac854.js",
+    "static/js/2.ea8c61bc.chunk.js",
+    "static/css/main.adf4ac7a.chunk.css",
+    "static/js/main.79cfc5f8.chunk.js"
   ]
 }
