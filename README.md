@@ -38,6 +38,9 @@ YoBike https://mshmwr.github.io/yo-taiwan/
 
 ## 使用技術
 
+- HTML
+- CSS
+- javascript
 - Create React App
 - Axios
 - React、React hooks
