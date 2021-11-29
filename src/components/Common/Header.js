@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import wavePink from "../../images/icon/wave_pink.png";
 import { getYoBusLogoIcon } from "../../utils/iconUtilis";
 
 const Header = () => {

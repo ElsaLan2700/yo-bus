@@ -10,29 +10,31 @@ const BusMap = () => {
     zoom: 13,
     height: { height: "836px" },
   });
-  const getPosition = function () {
-    return new Promise(function (resolve, reject) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => resolve(position),
-        (err) => reject(err)
-      );
-    });
-  };
 
-  const whereAmI = async function () {
-    const location = await getPosition();
-    const { latitude: lat, longitude: lon } = location.coords;
-    setgeoFeature({
-      polyline: "",
-      pathOptions: { color: "blue" },
-      markOptions: { color: "red" },
-      center: [lat, lon],
-      zoom: 13,
-      height: { height: "836px" },
-    });
-  };
-  whereAmI();
-  console.log(geoFeature);
+  useEffect(() => {
+    const getPosition = function () {
+      return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(
+          (position) => resolve(position),
+          (reject) => reject()
+        );
+      });
+    };
+    const whereAmI = async function () {
+      const location = await getPosition();
+      const { latitude: lat, longitude: lon } = location.coords;
+      setgeoFeature({
+        polyline: "",
+        pathOptions: { color: "blue" },
+        markOptions: { color: "red" },
+        center: [lat, lon],
+        zoom: 13,
+        height: { height: "836px" },
+      });
+    };
+    whereAmI();
+  }, []);
+
   return (
     <div>
       <MapLayer geoFeature={geoFeature} />
