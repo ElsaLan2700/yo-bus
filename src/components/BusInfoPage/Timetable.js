@@ -53,13 +53,18 @@ const fillBusData = (cachebackData, backData) => {
   });
 };
 
+const busState = ["進站中", "即將到站", "末班已過", "分"];
+
 const getRouteData = (datas, direction) => {
   // 返程
   const { routeData, directionData } = datas;
   const directionIndex = direction === "go" ? 0 : 1;
   let busID = "";
   let time = 0;
-  let timeText = "";
+  let timeTextObj = {
+    busStateIdx: 2,
+    text: "",
+  };
   const routeBackStopsData = [];
 
   routeData[directionIndex].Stops.forEach((item) => {
@@ -71,25 +76,61 @@ const getRouteData = (datas, direction) => {
 
           // 文字顯示
           if (time === 0) {
-            timeText = "進站中";
+            timeTextObj = {
+              busStateIdx: 0,
+              text: "",
+            };
           } else if (time <= 1 && 0 < time) {
-            timeText = "即將到站";
+            timeTextObj = {
+              busStateIdx: 1,
+              text: "",
+            };
           } else if (!time) {
-            timeText = "--";
+            timeTextObj = {
+              busStateIdx: 2,
+              text: "",
+            };
           } else {
-            timeText = `${time} 分鐘`;
+            timeTextObj = {
+              busStateIdx: 3,
+              text: `${time}`,
+            };
           }
         }
       });
     });
     routeBackStopsData.push({
-      timeText,
+      timeTextObj,
       stopUID: item.StopUID,
       stopName: item.StopName.Zh_tw,
       busID,
     });
   });
   return routeBackStopsData;
+};
+
+const switchBusStopState = (item) => {
+  console.log(item);
+  const idx = item.timeTextObj.busStateIdx;
+  switch (idx) {
+    case 0:
+    case 1:
+      return <div className="realtime_status_pullin">{busState[idx]}</div>;
+    case 2:
+      return <div className="realtime_status_nobus">{busState[idx]}</div>;
+    case 3:
+      return (
+        <div className="realtime_status_timing">
+          <span className="realtime_status_timing_number">
+            {item.timeTextObj.text}
+          </span>
+          <span className="realtime_status_timing_minute">{busState[idx]}</span>
+        </div>
+      );
+
+    default:
+      return <div>error</div>;
+  }
 };
 
 const Timetable = () => {
@@ -130,24 +171,59 @@ const Timetable = () => {
   }, [city, routeName]);
 
   return (
-    <div className="">
-      Timetable
-      {busBackStopsData.map((item) => (
-        <div>
-          <div>aaaa: {item.timeText}</div>
-          <div>bbbb: {`${item.stopUID}/${item.stopName}`}</div>
-          <div>cccc: {item.busID}</div>
+    <>
+      <div className="hero_section">
+        <div className="bus_info_container">
+          <div className="bus_info">
+            <div className="bus_name_box">
+              <span className="bus_name">72</span>
+              <div className="label">
+                <div className="label_location">
+                  <img src="./static/location.png" alt="location" />
+                  台北
+                </div>
+                <div className="label_bus">市區公車</div>
+              </div>
+            </div>
+            <div className="info_box">
+              <div className="info_title">收費方式：</div>
+              <div className="info_content">15元</div>
+            </div>
+            <div className="info_box">
+              <div className="info_title">營運業者：</div>
+              <div className="info_content">台北客運</div>
+            </div>
+            <div className="info_box">
+              <div className="info_title">聯絡電話：</div>
+              <div className="info_content">0800616688</div>
+            </div>
+          </div>
+          <div className="bus_realtime">
+            <div className="bus_realtime_title">即時動態</div>
+            <div className="bus_realtime_tab">
+              <div className="tab_selected">
+                往大直
+                <div className="tab_selected_bar"></div>
+              </div>
+              <div className="tab_default">往捷運麟光站</div>
+            </div>
+            <div className="realtime_list">
+              {busBackStopsData.map((item) => (
+                <>
+                  <div className="realtime_box">
+                    {switchBusStopState(item)}
+                    <div className="realtime_title_box">
+                      <span className="realtime_title">{item.stopName}</span>
+                      <div className="license">{item.busID}</div>
+                    </div>
+                  </div>
+                </>
+              ))}
+            </div>
+          </div>
         </div>
-      ))}
-      <div>-------------------------------</div>
-      {busGoStopsData.map((item) => (
-        <div>
-          <div>aaaa: {item.timeText}</div>
-          <div>bbbb: {`${item.stopUID}/${item.stopName}`}</div>
-          <div>cccc: {item.busID}</div>
-        </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 };
 
