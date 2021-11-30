@@ -46,4 +46,27 @@ const getRoute = async (city = "", routeName = "") => {
   return res;
 };
 
-export { getBus, getRoute };
+const getRouteInfo = async (city = "", routeName = "") => {
+  if (city === "" || routeName === "") return null;
+  let res = null;
+  try {
+    await axios
+      .get(
+        `https://ptx.transportdata.tw/MOTC/v2/Bus/Route/City/${city}/${routeName}?$format=JSON`,
+        {
+          headers: getAuthorizationHeader(),
+        }
+      )
+      .then(function (response) {
+        res = response.data;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  } catch (error) {
+    alert("GET Error!!" + error);
+  }
+  return res;
+};
+
+export { getBus, getRoute, getRouteInfo };

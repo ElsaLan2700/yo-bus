@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getBus, getRoute } from "../../apis/TimetableApi";
+import { getBus, getRoute, getRouteInfo } from "../../apis/TimetableApi";
 const cityData = [
   { name: "臺北市", value: "Taipei" },
   { name: "新北市", value: "NewTaipei" },
@@ -65,8 +65,10 @@ const getRouteData = (datas, direction) => {
     busStateIdx: 2,
     text: "",
   };
-  const routeBackStopsData = [];
 
+  if (routeData[directionIndex] === undefined) return [];
+
+  const routeStopsData = [];
   routeData[directionIndex].Stops.forEach((item) => {
     directionData.forEach((back) => {
       back.stops.forEach((stop) => {
@@ -99,14 +101,14 @@ const getRouteData = (datas, direction) => {
         }
       });
     });
-    routeBackStopsData.push({
+    routeStopsData.push({
       timeTextObj,
       stopUID: item.StopUID,
       stopName: item.StopName.Zh_tw,
       busID,
     });
   });
-  return routeBackStopsData;
+  return routeStopsData;
 };
 
 const switchBusStopState = (item) => {
@@ -132,15 +134,13 @@ const switchBusStopState = (item) => {
   }
 };
 
-const Timetable = () => {
-  const [city, setcity] = useState("Taichung");
-  const [routeName, setrouteName] = useState("1");
+const Timetable = ({ city = "Taichung", routeName = "1" }) => {
   const [busGoStopsData, setbusGoStopsData] = useState([]);
   const [busDirection, setbusDirection] = useState("go");
   const [busBackStopsData, setbusBackStopsData] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchRouteData() {
       // get 公車預估到站資料
       let goData = [];
       let backData = [];
@@ -167,7 +167,7 @@ const Timetable = () => {
       );
     }
 
-    fetchData();
+    fetchRouteData();
   }, [city, routeName]);
 
   return (
@@ -176,11 +176,11 @@ const Timetable = () => {
         <div className="bus_info_container">
           <div className="bus_info">
             <div className="bus_name_box">
-              <span className="bus_name">72</span>
+              <span className="bus_name">{routeName}</span>
               <div className="label">
                 <div className="label_location">
-                  <img src="./static/location.png" alt="location" />
-                  台北
+                  <img src="../../images/icon/location.png" alt="location" />
+                  {city}
                 </div>
                 <div className="label_bus">市區公車</div>
               </div>
