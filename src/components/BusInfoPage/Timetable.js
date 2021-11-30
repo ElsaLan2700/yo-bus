@@ -137,6 +137,7 @@ const Timetable = () => {
   const [city, setcity] = useState("Taichung");
   const [routeName, setrouteName] = useState("1");
   const [busGoStopsData, setbusGoStopsData] = useState([]);
+  const [busDirection, setbusDirection] = useState("go");
   const [busBackStopsData, setbusBackStopsData] = useState([]);
 
   useEffect(() => {
@@ -201,24 +202,57 @@ const Timetable = () => {
           <div className="bus_realtime">
             <div className="bus_realtime_title">即時動態</div>
             <div className="bus_realtime_tab">
-              <div className="tab_selected">
+              <div
+                className={`${
+                  busDirection === "go" ? "tab_selected" : "tab_default"
+                }`}
+                onClick={() => setbusDirection("go")}
+              >
                 往大直
-                <div className="tab_selected_bar"></div>
+                {busDirection === "go" && (
+                  <div className="tab_selected_bar"></div>
+                )}
               </div>
-              <div className="tab_default">往捷運麟光站</div>
+              <div
+                className={`${
+                  busDirection === "back" ? "tab_selected" : "tab_default"
+                }`}
+                onClick={() => setbusDirection("back")}
+              >
+                往捷運麟光站
+                {busDirection === "back" && (
+                  <div className="tab_selected_bar"></div>
+                )}
+              </div>
             </div>
             <div className="realtime_list">
-              {busBackStopsData.map((item) => (
-                <>
-                  <div className="realtime_box">
-                    {switchBusStopState(item)}
-                    <div className="realtime_title_box">
-                      <span className="realtime_title">{item.stopName}</span>
-                      <div className="license">{item.busID}</div>
-                    </div>
-                  </div>
-                </>
-              ))}
+              {busDirection === "go"
+                ? busGoStopsData.map((item) => (
+                    <>
+                      <div className="realtime_box">
+                        {switchBusStopState(item)}
+                        <div className="realtime_title_box">
+                          <span className="realtime_title">
+                            {item.stopName}
+                          </span>
+                          <div className="license">{item.busID}</div>
+                        </div>
+                      </div>
+                    </>
+                  ))
+                : busBackStopsData.map((item) => (
+                    <>
+                      <div className="realtime_box">
+                        {switchBusStopState(item)}
+                        <div className="realtime_title_box">
+                          <span className="realtime_title">
+                            {item.stopName}
+                          </span>
+                          <div className="license">{item.busID}</div>
+                        </div>
+                      </div>
+                    </>
+                  ))}
             </div>
           </div>
         </div>
