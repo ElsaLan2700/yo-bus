@@ -110,7 +110,6 @@ const getRouteData = (datas, direction) => {
 };
 
 const switchBusStopState = (item) => {
-  console.log(item);
   const idx = item.timeTextObj.busStateIdx;
   switch (idx) {
     case 0:
@@ -208,7 +207,12 @@ const Timetable = () => {
                 }`}
                 onClick={() => setbusDirection("go")}
               >
-                往大直
+                {`往${
+                  busGoStopsData.length === 0
+                    ? null
+                    : busGoStopsData[busGoStopsData.length - 1].stopName
+                }`}
+
                 {busDirection === "go" && (
                   <div className="tab_selected_bar"></div>
                 )}
@@ -219,7 +223,11 @@ const Timetable = () => {
                 }`}
                 onClick={() => setbusDirection("back")}
               >
-                往捷運麟光站
+                {`往${
+                  busBackStopsData.length === 0
+                    ? null
+                    : busBackStopsData[busBackStopsData.length - 1].stopName
+                }`}
                 {busDirection === "back" && (
                   <div className="tab_selected_bar"></div>
                 )}
