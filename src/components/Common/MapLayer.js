@@ -1,17 +1,6 @@
 import React from "react";
-import L from "leaflet";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-// import { getMyLocationIcon } from "../../utils/iconUtilis";
-// import wave_pink from "../../images/icon/static/my_location";
 
-var Icon = L.icon({
-  iconUrl:
-    "https://user-images.githubusercontent.com/89368918/143837077-d739a52f-fc3a-47d7-8f8e-c288ae7dffcf.png",
-  shadowUrl:
-    "https://user-images.githubusercontent.com/89368918/143837081-7c1446e0-b76c-4228-a933-12a34a00898f.png",
-  iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
-  shadowAnchor: [5, 5], // the same for the shadow
-});
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 
 function SetViewCenter({ coord }) {
   const map = useMap();
@@ -19,7 +8,7 @@ function SetViewCenter({ coord }) {
   return null;
 }
 
-const MapLayer = ({ geoFeature }) => {
+const MapLayer = ({ geoFeature, nearybyStop, IconRightHere, IconStop }) => {
   return (
     <>
       <MapContainer
@@ -35,11 +24,24 @@ const MapLayer = ({ geoFeature }) => {
           id="mapbox/streets-v11"
           accessToken="pk.eyJ1IjoiZWxzYTI3MDAiLCJhIjoiY2t2cXFjdmVqOGhzZDMxcXdnZjVjN3Z2ZiJ9.v1URgFZJDg6nNZ5nj5VgXQ"
         />
-        <Marker position={geoFeature.center} icon={Icon}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+        <Marker position={geoFeature.center} icon={IconRightHere}>
+          <Popup>你目前的位置</Popup>
         </Marker>
+        <div>
+          {nearybyStop.map((stops) => {
+            return (
+              <Marker
+                position={[
+                  stops.StationPosition.PositionLat,
+                  stops.StationPosition.PositionLon,
+                ]}
+                icon={IconStop}
+              >
+                <Popup>{stops.StationName.Zh_tw}</Popup>
+              </Marker>
+            );
+          })}
+        </div>
       </MapContainer>
     </>
   );

@@ -1,14 +1,13 @@
 import React from "react";
 import Header from "../components/Common/Header";
 import Footer from "../components/Common/footer";
-import BusMap from "../components/BusStopPage/BusMap";
+import BusMenu from "../components/BusStopPage/BusMenu";
 
 const BusStopPage = () => {
   return (
     <>
       <Header />
-
-      <BusMap />
+      <BusMenu />
       <Footer />
     </>
   );
