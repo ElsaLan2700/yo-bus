@@ -1,8 +1,8 @@
 import axios from "axios";
 import { getAuthorizationHeader } from "./axios";
-const doBusStopSearch = async (lat, lon) => {
+const doBusStopSearch = async (lat, lon, city) => {
   let res = null;
-  let city = "Taoyuan";
+
   try {
     await axios
       .get(

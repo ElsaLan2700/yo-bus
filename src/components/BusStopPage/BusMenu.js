@@ -8,8 +8,6 @@ const BusMenu = () => {
   const [position, setposition] = useState([24, 121]);
   const [nearybyStop, setnearybyStop] = useState([]);
 
-  console.log(position);
-
   useEffect(() => {
     const getPosition = function () {
       return new Promise((resolve, reject) => {
@@ -20,26 +18,25 @@ const BusMenu = () => {
       });
     };
     const whereAmI = async function () {
+      let city = "Taipei";
       const location = await getPosition();
       const { latitude: lat, longitude: lon } = location.coords;
       console.log(location);
       setposition([lat, lon]);
-      setnearybyStop(await doBusStopSearch(lat, lon));
+      setnearybyStop(await doBusStopSearch(lat, lon, city));
     };
     whereAmI();
   }, []);
 
   return (
-    <>
-      <div className="hero_section_stop">
-        <div className="bus-map">
-          <BusMap position={position} nearybyStop={nearybyStop} />
-        </div>
-        <div className="gps_result">
-          <BusCard nearybyStop={nearybyStop} />
-        </div>
+    <div className="hero_section_stop">
+      <div className="bus-map">
+        <BusMap position={position} nearybyStop={nearybyStop} />
       </div>
-    </>
+      <div className="gps_result">
+        <BusCard nearybyStop={nearybyStop} />
+      </div>
+    </div>
   );
 };
 

@@ -9,7 +9,6 @@ function SetViewCenter({ coord }) {
 }
 
 const MapLayer = ({ geoFeature, nearybyStop, IconRightHere, IconStop }) => {
-  console.log(nearybyStop);
   return (
     <>
       <MapContainer
