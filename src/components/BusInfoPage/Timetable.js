@@ -172,7 +172,7 @@ const Timetable = ({ city = "Taichung", routeName = "1" }) => {
 
   return (
     <>
-      <div className="hero_section">
+      <div className="bus_info_hero_section">
         <div className="bus_info_container">
           <div className="bus_info">
             <div className="bus_name_box">
