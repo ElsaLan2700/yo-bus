@@ -18,12 +18,11 @@ const BusMenu = () => {
       });
     };
     const whereAmI = async function () {
-      let city = "Taipei";
       const location = await getPosition();
       const { latitude: lat, longitude: lon } = location.coords;
       console.log(location);
       setposition([lat, lon]);
-      setnearybyStop(await doBusStopSearch(lat, lon, city));
+      setnearybyStop(await doBusStopSearch(lat, lon));
     };
     whereAmI();
   }, []);

@@ -16,7 +16,7 @@ const HeaderSearch = () => {
       <input
         type="text"
         className="search_field_input1"
-        placeholder="請輸入目的地、景點等關鍵字"
+        placeholder="請輸入公車路線或站牌名稱"
         onChange={(e) => setinput(e.target.value)}
       />
       <img src={search} alt="search" onClick={clickSearch} />

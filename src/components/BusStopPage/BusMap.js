@@ -18,7 +18,7 @@ const BusMap = ({ position, nearybyStop }) => {
     shadowUrl:
       "https://user-images.githubusercontent.com/89368918/143837081-7c1446e0-b76c-4228-a933-12a34a00898f.png",
     iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
-    shadowAnchor: [5, 5], // the same for the shadow
+    shadowAnchor: [6, 6], // the same for the shadow
   });
 
   let IconStop = L.icon({

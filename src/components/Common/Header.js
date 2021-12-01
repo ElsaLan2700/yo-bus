@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { getYoBusLogoIcon } from "../../utils/iconUtilis";
+import HeaderSearch from "./HeaderSearch";
 
-const Header = () => {
+const Header = ({ showSearch }) => {
   return (
     <div className="header">
       <div className="header_container">
         <Link to="/">{getYoBusLogoIcon()}</Link>
+        <div className={showSearch === "show" ? "show" : "hide"}>
+          <HeaderSearch />
+        </div>
         <div className="nav_menu">
           <Link to="/" className="menu_busroute">
             公車路線
